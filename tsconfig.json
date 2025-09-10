@@ -1,6 +1,22 @@
 {
   "compilerOptions": {
-  "baseUrl": "./src",
-  
-  }
+    "target": "ES2022",                       // Especifica a versão do ECMAScript para a qual o código será compilado.
+    "lib": ["ES2022"],                         // Lista as bibliotecas de declaração de tipos a serem incluídas na compilação.
+    "module": "ESNext",                      // Especifica o sistema de módulos a ser usado no código gerado.
+    "moduleResolution": "bundler",              // Determina como o TypeScript resolve os módulos. 'bundler' é otimizado para bundlers modernos.
+    "outDir": "dist",                          // Redireciona a estrutura de saída para o diretório especificado.
+    "strict": true,                          // Habilita todas as opções de verificação de tipo estritas.
+    "esModuleInterop": true,                   // Permite a interoperabilidade entre módulos CommonJS e ES Modules.
+    "skipLibCheck": true,                      // Pula a verificação de tipos de todos os arquivos de declaração (.d.ts).
+    "forceConsistentCasingInFileNames": true,  // Garante que as referências a um mesmo arquivo tenham a mesma capitalização.
+    "sourceMap": true,                       // Gera os arquivos .map correspondentes para os arquivos de saída.
+    "inlineSources": true,                   // Inclui o código-fonte nos sourcemaps.
+    "baseUrl": "./src",                        // Define a base para resolver caminhos de módulos não relativos.
+    "paths": {                               // Mapeia caminhos para diretórios específicos, relativo ao `baseUrl`.
+    "@/*": ["*"]
+  },
+    "types": ["node"]                        // Lista os pacotes de tipos a serem incluídos na compilação.
+  },
+  "include": ["src/**/*"],                   // Especifica os arquivos a serem incluídos no programa TypeScript.
+  "exclude": ["node_modules", "dist"]        // Especifica os arquivos a serem excluídos da compilação.
 }

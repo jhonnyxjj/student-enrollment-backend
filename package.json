@@ -2,10 +2,20 @@
   "name": "api-student-management-and-enrollment",
   "module": "index.ts",
   "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
+  "scripts": {
+    "dev": "bun dev",
+    "db:migrate": "bun run postgres/migrations/migrate.ts",
+    "db:seed": "bun run postgres/migrations/migrate.ts seed"
   },
-  "peerDependencies": {
-    "typescript": "^5"
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.0",
+    "@types/pg": "^8.15.5"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "pg": "^8.16.3",
+    "typescript": "^5.9.2"
   }
 }
