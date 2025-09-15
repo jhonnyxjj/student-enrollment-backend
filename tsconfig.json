@@ -6,6 +6,8 @@
     "moduleResolution": "bundler",              // Determina como o TypeScript resolve os módulos. 'bundler' é otimizado para bundlers modernos.
     "outDir": "dist",                          // Redireciona a estrutura de saída para o diretório especificado.
     "strict": true,                          // Habilita todas as opções de verificação de tipo estritas.
+    "experimentalDecorators": true,          // Habilita o uso de decoradores experimentais.
+    "emitDecoratorMetadata": true,           // Emite metadados de tipo para decoradores.
     "esModuleInterop": true,                   // Permite a interoperabilidade entre módulos CommonJS e ES Modules.
     "skipLibCheck": true,                      // Pula a verificação de tipos de todos os arquivos de declaração (.d.ts).
     "forceConsistentCasingInFileNames": true,  // Garante que as referências a um mesmo arquivo tenham a mesma capitalização.
@@ -17,6 +19,6 @@
   },
     "types": ["node"]                        // Lista os pacotes de tipos a serem incluídos na compilação.
   },
-  "include": ["src/**/*"],                   // Especifica os arquivos a serem incluídos no programa TypeScript.
+  "include": ["src/**/*", "src/domain", "src/domain/entities"],                   // Especifica os arquivos a serem incluídos no programa TypeScript.
   "exclude": ["node_modules", "dist"]        // Especifica os arquivos a serem excluídos da compilação.
 }

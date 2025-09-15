@@ -1,4 +1,4 @@
-import { Client } from "pg";
+import { Pool } from "pg";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -6,9 +6,9 @@ dotenv.config();
 /**
  * Instância do cliente PostgreSQL.
  * Utiliza a string de conexão da variável de ambiente DATABASE_URL.
- * @type {Client}
+ * @type {Pool}
  */
-const client = new Client({
+const pool: Pool = new Pool({
     connectionString: process.env.DATABASE_URL,
 });
 
@@ -17,14 +17,15 @@ const client = new Client({
  * A função encerra o processo em caso de falha na conexão.
  * @returns {Promise<void>}
  */
-export async function connectDb() {
+export async function connectDb(): Promise<void> {
     try {
-        await client.connect();
+        const client = await pool.connect();
         console.log("✅ Conectado ao PostgreSQL!");
+        client.release();
     } catch (err) {
         console.error("❌ Erro ao conectar ao PostgreSQL:", err);
         process.exit(1);
     }
 }
 
-export default client;
+export default pool;
